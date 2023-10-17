@@ -1,0 +1,346 @@
+/* set default box sizing to border box */
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    /* FONTS */
+    font-family: "Nunito", "Poppins",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+    
+    -webkit-font-smoothing: antialiased;
+
+    /* overflown animations created horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #31ffaf;
+}
+
+/* ::selection {
+    background-color: #cccccc;
+} */
+
+.app-body {
+    position: relative;
+    border-radius: 25px 0 25px 25px;
+    max-width: 60%;
+    height: 850px;
+    margin: 2em auto;
+    background-color: #ebebeb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HEADER STYLES */
+
+.intro {
+    position: absolute;
+    top: 2em;
+    border-radius: 0 20px 20px 0;
+    font-size: 0.9em;
+    width: 60%;
+    text-align: center;
+    color: #3d3669;
+    background-color: #31ffaf;
+}
+
+.caption > span{
+    color: #2e2e2e;
+    margin-left: 0.1em;
+}
+
+.quote {
+    font-style: italic;
+    margin: 1em 0;
+    padding: 2em;
+    text-align: left;
+    width: 100%;
+    background-color: rgba(235, 235, 235, 0.5)
+}
+
+.quote::before {
+    position: absolute;
+    left: 5px;
+    top: 90px;
+    content: "\201C";
+    font-size: 3em;
+}
+
+.quote #quote-author {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 0.6em;
+}
+
+
+
+
+
+
+
+/* .quote::before {
+    position: absolute;
+    left: 5px;
+    top: 90px;
+    content: "\201C";
+    font-size: 3em;
+}
+
+.quote > span {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 0.6em;
+} */
+
+.dashboard {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+
+    color: #31ffaf;
+    background-color: #2e2e2e;
+}
+
+.navbar {
+    /* border: 1px solid #31ffaf; */
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* dashboard icons styles */
+#date-time {
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+.icons > * {
+    margin-right: 0.5em;
+}
+
+.icons > *:last-child {
+    margin-right: 0;
+}
+
+#settings-icon, #about-icon {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#settings-icon g {
+    fill: #31ffaf;
+    transition: transform 2s;
+    transform-origin: center center;
+}
+
+#settings-icon:hover g {
+    transform: rotate(1turn);
+}
+
+/* only stroke color or else whole icon would be filled (the icon was exported from fiddle tha way for easier animation */
+#about-icon {
+    stroke: #31ffaf;
+    fill: none;
+}
+
+#about-icon-circle-filled {
+    stroke: none;
+    fill: #31ffaf;
+}
+
+#about-icon-circle {
+    /* rotate so the drawing animation starts at the bottom */
+    transform-origin: center center;
+    transform: rotate(90deg);
+}
+
+#about-icon:hover #about-icon-circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    /* forwards to ensure styling stays after animation finish */
+    animation: draw 1s linear forwards;
+}
+
+@keyframes draw {
+    to
+     {
+        stroke-dashoffset: 0;
+    }
+}
+
+.market-statistics {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #31ffaf;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER STYLES */
+footer {
+    position: absolute;
+    /* display: flex;
+    justify-content: flex-end; */
+    padding: 1em;
+    bottom: 0;
+    width: 100%;
+}
+
+footer svg {
+    transition: box-shadow 0.3s ease-in-out,
+                fill 0.3s ease-in-out
+}
+
+.footer-navbar {
+    /* navbar class has already display: flex applied (header) */
+    justify-content: space-between;
+    font-size: 0.8em;
+    padding: 0 3em;
+    width: 100%;
+}
+
+.copyright-logo {
+    margin: 0 0.5em;
+}
+
+#copyright-years {
+    margin-right: 0.5em;
+}
+
+.footer-navbar a {
+    color: #3d3669;
+}
+
+.footer-navbar a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a:hover {
+    text-decoration: none;
+}
+
+.social-icons svg:hover {
+    box-shadow: 2px 2px 5px #31ffaf;
+}
+
+.social-icons svg {
+    width: 1.8em;
+    height: 1.8em;
+    fill: #2e2e2e;    
+}
+
+.slide-button svg {
+    fill: #2e2e2e;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.slide-button svg:hover {
+    fill: #31ffaf;
+}
+
+/* SLIDING ANIMATION  */
+/* animation default styles */
+
+
+
+
+.slide-footer {
+    visibility: hidden;
+    opacity: 0; 
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+}
+
+.slide-button {
+    /* if js is disabled this button won´t be displayed */
+    display: none;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+
+/* after opening animation styles */
+.slide-button-opened {
+    /* transform: translateX(0); */
+    transform: rotate(0deg);
+}
+
+.slide-footer-opened {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* helper class to ensure animation won't play on page load */
+.no-transition {
+    transition: none !important;
+}
+
+
+
+
+
+
+
+

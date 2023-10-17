@@ -1,0 +1,253 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>InterFinance | Personal finances</title>
+
+  <!-- description is important for SEO purposes (should be 155 characters at max) -->
+  <meta name="description" content="Simple web app to manage your personal finances. You can connect your banking account as well as scan your receipts so that you don't miss anything. Charts and graphs help you visualize your incomes & expenses. Get tips from financial experts and learn how to leverage power of money.">
+
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  
+
+
+  <!-- -------------------------------------------------------------------------------- -->
+  <!-- everything that is needed for icons: (from https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df) -->
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- svg of any size for main icon: -->
+  <link rel="icon" href="favicon.svg" sizes="any" type=”image/svg+xml” >
+
+  <!-- mask icon (Safari) has to be made of a single colour and placed on a transparent background
+    the browser adds the colour of the attribute. -->
+  <!-- <link rel="mask-icon" href="mask-icon.svg" color="#000000"> -->
+
+  <!-- (for iOS), only the 180 x 180 size is needed, and the sizes attribute is superfluous -->
+  <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest"> -->
+  <!-- and at last, place favicon.ico in the root directory (for older browser support) -->
+  <!-- this favicon will be in .ico format (containing various sizes), use this generator: https://realfavicongenerator.net/ -->
+  <!-- good resource is also this favicon checker: https://realfavicongenerator.net/favicon_checker#.YpZIKmhByUk -->
+  <!-- -------------------------------------------------------------------------------- -->
+
+  <!-- favicons HTML generated from https://realfavicongenerator.net/ -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/generated favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/generated favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/generated favicons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="img/generated favicons/safari-pinned-tab.svg" color="#31ffaf">
+  <meta name="apple-mobile-web-app-title" content="InterFinance">
+  <meta name="application-name" content="InterFinance">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#da2c2c">
+
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/boilerplate.css">
+  <link rel="stylesheet" href="css/main.css">
+
+
+    <!-- FONTS -->
+    
+    <!-- Nunito -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> -->
+
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+</head>
+
+<body>
+
+  <div class="app-body">
+
+    <header>
+
+      <section class="intro">
+
+        <h1 class="caption">Inter<span>Finance</span></h1>
+        <blockquote class="quote">
+          <!-- default quote, but will be randomly updated from database using js -->
+          <span id="quote-text">If you buy things you do not need, soon you will have to sell things you need.</span>
+          <span id="quote-author">Warren E. Buffet</span>
+        </blockquote>
+
+      </section>
+
+
+      <aside class="dashboard">
+
+        <nav>
+          <div class="navbar" role="toolbar">
+
+            <!-- javascript dateTime function -->
+            <span id="date-time">Welcome to the dashboard!</span>
+
+            <span class="icons">
+              <!-- about icon -->
+              <a href="" role="button">
+                <svg id="about-icon" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                  <g data-animate="true">
+                    <circle id="about-icon-circle" cx="16" cy="16" r="15" stroke-width="2" />
+                    <circle id="about-icon-circle-filled" cx="16" cy="26" r="2"/>
+                    <path
+                      d="M10 12.5625c0-.8618.1552-1.7152.4567-2.5114.3016-.79616.7435-1.5196 1.3007-2.12899.5571-.60938 1.2185-1.09277 1.9465-1.42257C14.4319 6.16974 15.2121 6 16 6s1.5681.16974 2.2961.49954 1.3894.81319 1.9465 1.42257c.5572.60939.9991 1.33283 1.3007 2.12899v0c.5698 1.5047-.3266 3.0621-1.6428 3.9876l-.9138.6425a7.0306 7.0306 0 0 0-1.6857 1.6768v0A7.03045 7.03045 0 0 0 16 20.4324V21" stroke-width="3" stroke-linecap="round"/>
+                  </g>
+                </svg>
+              </a>
+
+
+              <!-- settings icon -->
+              <a href="" role="button">
+                <svg id="settings-icon" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                  <g data-animate="true">
+                    <path fill-rue="evenodd" clip-rule="evenodd"
+                      d="M16 10.3529c-3.1188 0-5.6471 2.5283-5.6471 5.6471S12.8812 21.6471 16 21.6471 21.6471 19.1188 21.6471 16 19.1188 10.3529 16 10.3529ZM12.2353 16c0-2.0792 1.6855-3.7647 3.7647-3.7647S19.7647 13.9208 19.7647 16 18.0792 19.7647 16 19.7647 12.2353 18.0792 12.2353 16Z" />l
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M15.0588 0c-1.5594 0-2.8235 1.2641-2.8235 2.8235v2.0067c0 .2686-.1926.581-.5646.7355-.3633.1509-.7115.0694-.9066-.1257L8.6794 3.3553c-.7351-.7351-1.927-.7351-2.662 0l-2.6621 2.662c-.7351.7351-.7351 1.927 0 2.662L5.44 10.7642c.1951.1951.2765.5433.1256.9066-.1544.372-.4668.5646-.7354.5646H2.8235C1.2641 12.2353 0 13.4994 0 15.0588v1.8824c0 1.5594 1.2641 2.8235 2.8235 2.8235h2.0067c.2686 0 .581.1926.7355.5646.1508.3633.0694.7115-.1257.9066l-2.0847 2.0847c-.7351.7351-.7351 1.927 0 2.6621l2.662 2.662c.7351.7351 1.927.7351 2.662 0l2.0848-2.0847c.1951-.1951.5433-.2765.9066-.1256.372.1544.5646.4668.5646.7354v2.0067c0 1.5594 1.2641 2.8235 2.8235 2.8235h1.8824c1.5594 0 2.8235-1.2641 2.8235-2.8235v-2.0067c0-.2686.1926-.581.5646-.7354.3633-.1509.7115-.0695.9066.1256l2.0847 2.0847c.7351.7351 1.927.7351 2.6621 0l2.662-2.662c.7351-.7351.7351-1.927 0-2.6621L26.56 21.2359c-.1951-.1951-.2765-.5433-.1256-.9066.1544-.372.4668-.5646.7354-.5646h2.0067c1.5594 0 2.8235-1.2641 2.8235-2.8235v-1.8824c0-1.5594-1.2641-2.8235-2.8235-2.8235h-2.0067c-.2686 0-.581-.1926-.7354-.5646-.1509-.3633-.0695-.7115.1256-.9066l2.0847-2.0847c.7351-.7351.7351-1.927 0-2.662l-2.662-2.6621c-.7351-.7351-1.927-.7351-2.6621 0L21.2359 5.44c-.1951.1951-.5433.2765-.9066.1256-.372-.1544-.5646-.4668-.5646-.7354V2.8235C19.7647 1.2641 18.5006 0 16.9412 0h-1.8824Zm-.9412 2.8235a.9412.9412 0 0 1 .9412-.9412h1.8824a.9412.9412 0 0 1 .9412.9412v2.0067c0 1.159.7785 2.0808 1.7249 2.4738.9554.3968 2.1451.2816 2.9596-.533l2.0848-2.0847 2.662 2.662-2.0847 2.0848c-.8146.8145-.9298 2.0042-.533 2.9596.393.9464 1.3148 1.7249 2.4738 1.7249h2.0067c.5198 0 .9411.4214.9411.9412v1.8824c0 .5198-.4213.9412-.9411.9412h-2.0067c-1.159 0-2.0808.7785-2.4738 1.7249-.3968.9554-.2816 2.1451.533 2.9597l2.0847 2.0847-2.662 2.662-2.0848-2.0847c-.8145-.8146-2.0042-.9298-2.9596-.533-.9464.393-1.7249 1.3148-1.7249 2.4738v2.0067c0 .5198-.4214.9411-.9412.9411h-1.8824c-.5198 0-.9412-.4213-.9412-.9411v-2.0067c0-1.159-.7785-2.0808-1.7249-2.4738-.9554-.3968-2.1451-.2816-2.9596.533l-2.0848 2.0847-2.662-2.662 2.0847-2.0848c.8146-.8145.9299-2.0042.533-2.9596-.393-.9464-1.3148-1.7249-2.4738-1.7249H2.8235a.9412.9412 0 0 1-.9412-.9412v-1.8824a.9412.9412 0 0 1 .9412-.9412h2.0067c1.159 0 2.0808-.7785 2.4738-1.7249.3968-.9554.2816-2.1451-.533-2.9596L4.6863 7.3483l2.662-2.662L9.433 6.771c.8146.8146 2.0043.9299 2.9597.533.9464-.393 1.7249-1.3148 1.7249-2.4738V2.8235Z"/>
+                    </g>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </nav>
+
+        <div class="market-statistics">
+
+
+        </div>
+
+
+
+      </aside>
+
+   
+    
+      
+
+    </header>
+
+    <main></main>
+    
+    <footer>
+
+      <span class="navbar footer-navbar slide-footer slide-footer-opened" role="navigation">
+
+        <!-- using js to update copyright text year -->
+        <span>All rights reserved<span class="copyright-logo">&copy;</span><span id="copyright-years">2022</span><a href="">Kristián Koribský</a></span>
+
+        <!-- <span>|</span> -->
+
+        <span class="icons nav-links">
+
+          <a href="">Home</a>
+          <a href="">About</a>
+          <a href="">Open database file</a>
+          
+        </span>
+
+        <!-- <span>|</span> -->
+
+        <span class="icons social-icons">
+          
+          <a href="" role="button">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_44_5)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M28.0904 0C30.2482 0 32 1.75188 32 3.90963V28.0904C32 30.2481 30.2481 32 28.0904 32H3.90963C1.75188 32 0 30.2481 0 28.0904V3.90963C0 1.75188 1.75181 0 3.90963 0H28.0904V0ZM10.0288 26.4549V12.3476H5.33881V26.4549H10.0288ZM26.9375 26.4549V18.3649C26.9375 14.0316 24.6239 12.0158 21.5387 12.0158C19.0509 12.0158 17.9366 13.384 17.3126 14.3449V12.3476H12.6238C12.686 13.6714 12.6238 26.4549 12.6238 26.4549H17.3126V18.5764C17.3126 18.1546 17.3429 17.7331 17.4672 17.4317C17.8056 16.5895 18.5776 15.7171 19.8731 15.7171C21.569 15.7171 22.2485 17.0113 22.2485 18.9069V26.4549H26.9375V26.4549ZM7.7155 5.54513C6.11087 5.54513 5.0625 6.60006 5.0625 7.98275C5.0625 9.33637 6.079 10.4204 7.65344 10.4204H7.68369C9.319 10.4204 10.3369 9.33637 10.3369 7.98275C10.3066 6.602 9.32187 5.54813 7.7155 5.54513V5.54513Z"/>
+              </g>
+            </svg>
+          </a>
+          
+          <a href="" role="button">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_44_7)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M28.0904 0C30.2482 0 32 1.75188 32 3.90963V28.0904C32 30.2481 30.2481 32 28.0904 32H3.90963C1.75188 32 0 30.2481 0 28.0904V3.90963C0 1.75188 1.75181 0 3.90963 0H28.0904V0ZM12.2199 26.534C20.7161 26.534 25.3617 19.4938 25.3617 13.3923C25.3617 13.1911 25.3617 12.9899 25.3521 12.7984C26.2525 12.1471 27.0379 11.3329 27.6606 10.4038C26.8368 10.7678 25.946 11.0168 25.0073 11.1318C25.9652 10.557 26.6931 9.65663 27.0379 8.57425C26.1472 9.10106 25.1606 9.48425 24.1069 9.69494C23.264 8.79456 22.0667 8.239 20.7353 8.239C18.1874 8.239 16.1184 10.308 16.1184 12.8559C16.1184 13.2199 16.1567 13.5743 16.2429 13.9095C12.4019 13.7179 9.00156 11.8789 6.72188 9.08194C6.32913 9.762 6.09925 10.557 6.09925 11.3999C6.09925 12.9996 6.91344 14.4172 8.15862 15.2409C7.40194 15.2217 6.69312 15.0111 6.0705 14.6662V14.7237C6.0705 16.9651 7.66056 18.8233 9.77744 19.2543C9.39431 19.3597 8.98244 19.4172 8.56094 19.4172C8.264 19.4172 7.97669 19.3884 7.68931 19.3309C8.27362 21.1701 9.97856 22.5014 11.9996 22.5397C10.4192 23.7754 8.42688 24.5129 6.26213 24.5129C5.88856 24.5129 5.52456 24.4938 5.16056 24.4459C7.18163 25.7678 9.61456 26.534 12.2199 26.534V26.534Z"/>
+              </g>
+            </svg>
+          </a>
+          
+          <a href="" role="button">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_46_20)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M28.0904 0C30.2482 0 32 1.75188 32 3.90963V28.0904C32 30.2481 30.2481 32 28.0904 32H3.90963C1.75188 32 0 30.2481 0 28.0904V3.90963C0 1.75188 1.75181 0 3.90963 0H28.0904V0ZM16 5.0625C13.0296 5.0625 12.6571 5.07506 11.4905 5.12831C10.3263 5.18144 9.53125 5.36631 8.8355 5.63675C8.11625 5.91625 7.50631 6.29025 6.89825 6.89825C6.29019 7.50631 5.91619 8.11631 5.63669 8.8355C5.36631 9.53125 5.18144 10.3263 5.12825 11.4905C5.07506 12.6571 5.0625 13.0296 5.0625 16C5.0625 18.9704 5.07506 19.3429 5.12825 20.5095C5.18144 21.6737 5.36631 22.4687 5.63669 23.1645C5.91619 23.8837 6.29019 24.4937 6.89825 25.1017C7.50631 25.7098 8.11625 26.0838 8.8355 26.3633C9.53125 26.6337 10.3263 26.8186 11.4905 26.8717C12.6571 26.9249 13.0296 26.9375 16 26.9375C18.9704 26.9375 19.3429 26.9249 20.5095 26.8717C21.6737 26.8186 22.4687 26.6337 23.1645 26.3633C23.8837 26.0838 24.4937 25.7098 25.1017 25.1017C25.7098 24.4937 26.0838 23.8837 26.3633 23.1645C26.6337 22.4687 26.8186 21.6737 26.8717 20.5095C26.9249 19.3429 26.9375 18.9704 26.9375 16C26.9375 13.0296 26.9249 12.6571 26.8717 11.4905C26.8186 10.3263 26.6337 9.53125 26.3633 8.8355C26.0838 8.11631 25.7098 7.50631 25.1017 6.89825C24.4937 6.29025 23.8837 5.91625 23.1645 5.63675C22.4687 5.36631 21.6737 5.18144 20.5095 5.12831C19.3429 5.07506 18.9704 5.0625 16 5.0625V5.0625ZM16 7.03325C18.9204 7.03325 19.2664 7.04438 20.4197 7.097C21.4861 7.14569 22.0652 7.32388 22.4506 7.47356C22.9612 7.672 23.3255 7.90906 23.7083 8.29175C24.091 8.6745 24.328 9.03887 24.5264 9.54937C24.6762 9.93481 24.8544 10.5139 24.903 11.5803C24.9556 12.7336 24.9668 13.0796 24.9668 16C24.9668 18.9204 24.9556 19.2664 24.903 20.4197C24.8544 21.4861 24.6762 22.0652 24.5264 22.4506C24.328 22.9612 24.091 23.3255 23.7083 23.7083C23.3255 24.091 22.9612 24.328 22.4506 24.5264C22.0652 24.6762 21.4861 24.8544 20.4197 24.903C19.2666 24.9556 18.9206 24.9668 16 24.9668C13.0794 24.9668 12.7335 24.9556 11.5803 24.903C10.5139 24.8544 9.93481 24.6762 9.54937 24.5264C9.03881 24.328 8.6745 24.091 8.29175 23.7083C7.909 23.3255 7.67194 22.9612 7.47356 22.4506C7.32381 22.0652 7.14563 21.4861 7.09694 20.4197C7.04431 19.2664 7.03319 18.9204 7.03319 16C7.03319 13.0796 7.04431 12.7336 7.09694 11.5803C7.14563 10.5139 7.32381 9.93481 7.47356 9.54937C7.67194 9.03887 7.909 8.6745 8.29175 8.29175C8.6745 7.90906 9.03881 7.672 9.54937 7.47356C9.93481 7.32388 10.5139 7.14569 11.5803 7.097C12.7336 7.04438 13.0796 7.03325 16 7.03325V7.03325ZM16 10.3834C12.8981 10.3834 10.3834 12.8981 10.3834 16C10.3834 19.1019 12.8981 21.6166 16 21.6166C19.1019 21.6166 21.6166 19.1019 21.6166 16C21.6166 12.8981 19.1019 10.3834 16 10.3834ZM16 19.6458C13.9864 19.6458 12.3542 18.0136 12.3542 16C12.3542 13.9864 13.9864 12.3542 16 12.3542C18.0136 12.3542 19.6458 13.9864 19.6458 16C19.6458 18.0136 18.0136 19.6458 16 19.6458V19.6458ZM23.151 10.1616C23.151 10.8864 22.5633 11.474 21.8384 11.474C21.1136 11.474 20.526 10.8864 20.526 10.1616C20.526 9.43669 21.1136 8.84906 21.8384 8.84906C22.5633 8.84906 23.151 9.43669 23.151 10.1616Z"/>
+              </g>
+            </svg>
+          </a>
+          
+          <a href="" role="button">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_44_13)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M28.0904 0C30.2482 0 32 1.75188 32 3.90963V28.0904C32 30.2481 30.2481 32 28.0904 32H21.4361V19.9428H25.5986L26.3906 14.779H21.4361V11.4279C21.4361 10.0152 22.1282 8.63819 24.3474 8.63819H26.6V4.24194C26.6 4.24194 24.5556 3.89306 22.6011 3.89306C18.5206 3.89306 15.8536 6.36612 15.8536 10.8433V14.779H11.3178V19.9428H15.8536V32H3.90963C1.75188 32 0 30.2481 0 28.0904V3.90963C0 1.75188 1.75181 0 3.90963 0H28.0904V0Z"/>
+              </g>
+            </svg>
+          </a>
+
+
+        </span>
+
+
+      </span>
+
+      <span>
+        <a class="slide-button slide-button-opened" href="" role="button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 48 48">
+            <path d="m24.7 38 10.5-14-10.5-14h3.7l10.5 14-10.5 14Zm-12.6 0 10.5-14-10.5-14h3.7l10.5 14-10.5 14Z" />
+          </svg>
+        </a>
+      </span>
+      
+
+
+
+    </footer>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Add your site or application content here -->
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
